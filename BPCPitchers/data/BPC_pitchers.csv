@@ -1,17 +1,14 @@
-Velo,Total spin,True Spin,Spin Eff,Spin Direct,H. BREAK,V_BREAK,HORZ. ANGLE,GYRO,Pitch Type,BU,Pitcher,Handedness
+Velo,Total spin,True Spin,Spin Eff,Spin Direct,H. BREAK,V_BREAK,HORZ. ANGLE,GYRO,PitchType,BU,Pitcher,Handedness
 90,0,0,0,0,0,0,0,0,Fastball?,0,Jake McKenna,L
 90.3,0,0,0,0,0,0,0,0,Fastball?,0,Jake McKenna,L
-0,0,0,0,0,0,0,0,0,Change up?,0,Jake McKenna,L
-0,0,0,0,0,0,0,0,0,Change up?,0,Jake McKenna,L
-82.6,0,0,0,0,0,0,0,0,Change up?,0,Jake McKenna,L
-0,0,0,0,0,0,0,0,0,Change up?,0,Jake McKenna,L
-81.1,0,0,0,0,0,0,0,0,Change up?,0,Jake McKenna,L
+82.6,0,0,0,0,0,0,0,0,Changeup?,0,Jake McKenna,L
+81.1,0,0,0,0,0,0,0,0,Changeup?,0,Jake McKenna,L
 89.3,0,0,0,0,0,0,0,0,Fastball?,0,Jake McKenna,L
-72.2,2207,1214,55,05h:48m,1.3,-11.5,-1.9,-56.6,Curve ball?,30.56786704,Jake McKenna,L
-72.7,2205,1222,55.4,05h:40m,1.6,-12.4,-0.2,-56.3,Curve ball?,30.3301238,Jake McKenna,L
-73.3,2223,1123,50.5,05h:38m,1.9,-11.3,-0.5,-59.7,Curve ball?,30.32742156,Jake McKenna,L
-72,2096,1185,56.5,05h:08m,5.7,-11,-0.8,-55.6,Curve ball?,29.11111111,Jake McKenna,L
-74.4,2113,1169,55.3,05h:10m,4.9,-11,-0.1,-56.4,Curve ball?,28.40053763,Jake McKenna,L
+72.2,2207,1214,55,05h:48m,1.3,-11.5,-1.9,-56.6,Curveball?,30.56786704,Jake McKenna,L
+72.7,2205,1222,55.4,05h:40m,1.6,-12.4,-0.2,-56.3,Curveball?,30.3301238,Jake McKenna,L
+73.3,2223,1123,50.5,05h:38m,1.9,-11.3,-0.5,-59.7,Curveball?,30.32742156,Jake McKenna,L
+72,2096,1185,56.5,05h:08m,5.7,-11,-0.8,-55.6,Curveball?,29.11111111,Jake McKenna,L
+74.4,2113,1169,55.3,05h:10m,4.9,-11,-0.1,-56.4,Curveball?,28.40053763,Jake McKenna,L
 89.7,2236,2032,90.9,11h:40m,-3.4,18.6,-0.4,-24.6,Fastball?,24.92753623,Jake McKenna,L
 90.3,2243,2088,93.1,11h:28m,-5.7,18.8,-0.1,-21.5,Fastball?,24.83942414,Jake McKenna,L
 89.5,2218,2111,95.2,11h:44m,-3,19.5,-0.5,-17.9,Fastball?,24.78212291,Jake McKenna,L
@@ -20,7 +17,7 @@ Velo,Total spin,True Spin,Spin Eff,Spin Direct,H. BREAK,V_BREAK,HORZ. ANGLE,GYRO
 89.3,2143,1797,83.8,11h:40m,-3,17.1,-0.9,-33,Fastball?,23.99776036,Jake McKenna,L
 90.6,2134,1919,90,11h:20m,-6.7,17.1,0.2,-25.9,Fastball?,23.55408389,Jake McKenna,L
 90.6,2088,2013,96.4,11h:22m,-6.2,18.2,-0.2,-15.5,Fastball?,23.04635762,Jake McKenna,L
-78.4,1523,1473,96.7,11h:18m,-6.4,17.1,0.2,-14.8,Change up?,19.42602041,Jake McKenna,L
+78.4,1523,1473,96.7,11h:18m,-6.4,17.1,0.2,-14.8,Changeup?,19.42602041,Jake McKenna,L
 62.8,0,0,0,0,0,0,0,0,Fastball?,0,Chase Petty,R
 73.3,2593,2392,92.3,03h:54m,14.9,-8,-2,22.7,Fastball?,35.37517053,Chase Petty,R
 73.2,1909,1658,86.9,01h:42m,10.7,8.5,-1.6,29.7,Fastball?,26.07923497,Chase Petty,R
@@ -35,12 +32,171 @@ Velo,Total spin,True Spin,Spin Eff,Spin Direct,H. BREAK,V_BREAK,HORZ. ANGLE,GYRO
 80.8,2381,645,27.1,08h:26m,-6.7,-1,2,74.3,Slider?,29.46782178,Chase Petty,R
 80.8,2468,438,17.8,09h:06m,-4.4,0.2,-0.3,79.8,Slider?,30.54455446,Chase Petty,R
 92,2225,2213,99.5,01h:30m,14.9,14.8,0,-5.8,Slider?,24.18478261,Chase Petty,R
-82.8,0,0,0,0,0,0,0,0,Change up?,0,Chase Petty,R
+82.8,0,0,0,0,0,0,0,0,Changeup?,0,Chase Petty,R
 93.2,2224,2218,99.7,01h:36m,15.6,14.1,0,4.1,2 Seam fastball?,23.86266094,Chase Petty,R
-82.2,0,0,0,0,0,0,0,0,Change up?,0,Chase Petty,R
+82.2,0,0,0,0,0,0,0,0,Changeup?,0,Chase Petty,R
 82.2,2349,422,18,08h:02m,-4.1,-1.4,1.1,79.7,Slider?,28.57664234,Chase Petty,R
-0,0,0,0,0,0,0,0,0,Slider?,0,Chase Petty,R
 79.5,2274,846,37.2,07h:42m,-7.1,-4.3,2.3,68.2,Slider?,28.60377358,Chase Petty,R
 82.5,2400,507,21.1,11h:12m,-1.2,4.9,0.7,77.8,Slider?,29.09090909,Chase Petty,R
 92.4,2248,2240,99.6,01h:54m,17.5,11.2,-1.6,4.8,2 Seam fastball?,24.32900433,Chase Petty,R
 90.6,2130,2130,100,01h:50m,16.9,11.9,-0.3,1,2 Seam fastball?,23.50993377,Chase Petty,R
+87.8,2211,2065,93.4,0:50,9,17.8,-1.9,20.9,Fastball?,25.18223235,Kenny Levari,R
+87.3,2220,2170,97.8,0:42,7.7,20,0.2,12.2,Fastball?,25.42955326,Kenny Levari,R
+71.8,0,0,0,0,0,0,0,0,Curveball?,0,Kenny Levari,R
+71.8,0,0,0,0,0,0,0,0,Curveball?,0,Kenny Levari,R
+87.9,2146,2112,98.4,0:40,7.4,19.8,-0.4,10.2,Fastball?,24.41410694,Kenny Levari,R
+87.9,2180,2108,96.7,0:36,6.7,19.9,0,14.7,Fastball?,24.80091013,Kenny Levari,R
+85.8,2151,2127,98.9,1:08,12.1,17.9,-1.3,8.5,Fastball?,25.06993007,Kenny Levari,R
+76.3,1565,1488,95.1,1:52,15.6,10,-1.9,18.1,Changeup?,20.51114024,Kenny Levari,R
+76.7,1293,1289,99.6,2:02,15.3,8.5,-1.8,5,Changeup?,16.85788787,Kenny Levari,R
+77.2,1286,1226,95.3,1:56,14.1,8.5,-1.7,17.7,Changeup?,16.65803109,Kenny Levari,R
+85.5,2167,2134,98.5,1:06,11.8,18.1,-1.7,9.9,Fastball?,25.34502924,Kenny Levari,R
+84,2073,1934,93.3,1:04,11.6,17.2,-2.8,21.1,Fastball?,24.67857143,Kenny Levari,R
+83.2,2124,1960,92.3,1:00,10.5,17.9,-1.6,-22.7,Fastball?,25.52884615,Kenny Levari,R
+87.6,2213,2160,97.6,0:42,7.7,20,-0.2,12.5,Fastball?,25.26255708,Kenny Levari,R
+68.9,2065,1498,72.6,7:32,-12.2,-11.3,-0.1,43.5,Curveball?,29.97097242,Kenny Levari,R
+74.7,1554,1515,97.5,1:50,15.3,10.5,-2.7,12.9,Changeup?,20.80321285,Kenny Levari,R
+75.6,0,0,0,0,0,0,0,0,Changeup?,0,Kenny Levari,R
+84.9,1965,1837,93.5,1:18,12.3,14.6,-2.5,20.8,2 Seam fastball?,23.14487633,Kenny Levari,R
+65.7,1929,1507,78.1,7:34,-13.3,-12.2,-0.2,38.6,Curveball?,29.36073059,Kenny Levari,R
+69.9,2063,1488,72.1,7:36,-12.8,-11.3,-0.6,43.8,Curveball?,29.51359084,Kenny Levari,R
+75,1404,1351,96.2,1:58,15.2,8.9,-1.8,15.8,Changeup?,18.72,Kenny Levari,R
+86,0,0,0,0,0,0,0,0,Fastball?,0,Kenny Levari,R
+67.8,2120,1587,74.9,7:36,-14.2,-11.7,0.9,41.5,Curveball?,31.26843658,Kenny Levari,R
+68.4,2174,1655,76.1,7:44,-14.4,-10.7,1,40.4,Curveball?,31.78362573,Kenny Levari,R
+85.5,2153,2129,98.9,1:06,11.7,17.6,-1,8.6,Fastball?,25.18128655,Kenny Levari,R
+86.7,2222,2041,91.9,0:54,9.4,17.3,-1.7,23.3,Fastball?,25.62860438,Kenny Levari,R
+74.3,1232,1192,96.8,2:02,14.6,8.1,-0.7,14.6,Changeup?,16.58142665,Kenny Levari,R
+75.1,1343,1309,97.5,2:00,15.4,8.6,-3.5,12.9,Changeup?,17.8828229,Kenny Levari,R
+83.6,2167,2060,95.1,1:14,12.8,16.8,-1.5,18.1,Fastball?,25.92105263,Kenny Levari,R
+75.1,1351,1288,95.4,2:02,15.4,8.4,-1.1,17.5,Changeup?,17.98934754,Kenny Levari,R
+81.8,2151,1795,83.5,0:58,9,14.8,-3.9,33.4,Fastball?,26.29584352,Kenny Levari,R
+81.9,0,0,0,0,0,0,0,0,Fastball?,0,Kenny Levari,R
+80.8,2053,1940,94.5,1:12,12.5,15.6,-4.8,19.1,Fastball?,25.40841584,Kenny Levari,R
+82.7,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+83.2,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+83.2,2111,1956,92.6,11:08,-9.4,18.2,2.8,-22.1,Fastball?,25.37259615,Jackson Venesko,L
+76.5,1739,1579,90.8,11:06,-8.6,16.5,2.6,-24.8,Changeup?,22.73202614,Jackson Venesko,L
+75.9,1536,1364,88.8,11:00,-8.9,14.7,2.9,-27.3,Changeup?,20.23715415,Jackson Venesko,L
+76.5,1505,1358,90.3,11:06,-7.9,15.1,2.8,-25.5,Changeup?,19.67320261,Jackson Venesko,L
+82.9,2165,1971,91,11:12,-8.5,17.9,3,-24.4,Fastball?,26.11580217,Jackson Venesko,L
+84,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+71.5,2200,1209,55,5:40,2.3,-13.1,0.7,-56.7,Curveball?,30.76923077,Jackson Venesko,L
+70,2214,1461,66,5:38,2.8,-16.8,2.8,-48.7,Curveball?,31.62857143,Jackson Venesko,L
+67.9,2191,1746,79.7,5:44,3,-19.1,0.3,-37.2,Curveball?,32.26804124,Jackson Venesko,L
+66.5,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+71.4,2282,1169,51.2,5:38,2.5,-12.9,1.6,-59.2,Curveball?,31.96078431,Jackson Venesko,L
+82.9,2208,1974,89.4,11:16,-7.6,18.1,2,-26.6,Curveball?,26.6344994,Jackson Venesko,L
+67.3,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+70.5,2245,1169,52.1,5:48,1.8,-12.3,-0.2,-58.6,Curveball?,31.84397163,Jackson Venesko,L
+82.3,1952,1788,91.6,11:10,-8.6,17.3,1.9,-23.6,Fastball?,23.7181045,Jackson Venesko,L
+81.3,2163,1940,89.7,11:10,-8.4,18,2.1,-26.2,Fastball?,26.60516605,Jackson Venesko,L
+83,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+83.3,2230,2011,90.2,11:10,-8.7,18.3,2.1,-25.6,Fastball?,26.77070828,Jackson Venesko,L
+83.7,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+83.6,2118,1926,90.9,11:12,-8.3,18,2.8,-24.6,Fastball?,25.33492823,Jackson Venesko,L
+83.2,2118,1933,91.3,11:10,-8.4,17.8,3,-24.1,Fastball?,25.45673077,Jackson Venesko,L
+82.6,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+82.4,2203,1917,87,10:26,-14.7,12,6.3,-29.5,Fastball?,26.73543689,Jackson Venesko,L
+82.8,2158,2021,93.7,10:20,-15.8,12.9,4.9,-20.5,Fastball?,26.06280193,Jackson Venesko,L
+76.5,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+81.1,1829,1615,88.3,10:16,-14.7,10.3,6.3,-28,Fastball?,22.55240444,Jackson Venesko,L
+81.5,2122,1884,88.8,10:26,-14.4,12.1,6.7,-27.4,Curveball?,26.03680982,Jackson Venesko,L
+68.7,2017,1371,68,4:28,12.6,-12.3,3.2,-47.2,Curveball?,29.35953421,Jackson Venesko,L
+70.6,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+81.1,2034,1920,94.4,10:40,-13,15.4,3.7,-19.3,Fastball?,25.08014797,Jackson Venesko,L
+76.7,1439,1244,86.4,10:10,-13.4,8.9,3.6,-30.2,Changeup?,18.76140808,Jackson Venesko,L
+77,0,0,0,0,0,0,0,0,Changeup?,0,Jackson Venesko,L
+81.1,1890,1622,85.9,10:18,-14.3,11.1,2,-30.8,Fastball?,23.30456227,Jackson Venesko,L
+80.6,1948,1652,84.8,10:18,-14.4,11,2.8,-32,Fastball?,24.16873449,Jackson Venesko,L
+79.8,2079,1789,86.1,10:24,-14.5,12.5,3.6,-30.6,Fastball?,26.05263158,Jackson Venesko,L
+80.2,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+81,2090,1954,93.5,10:42,-13.1,15.7,3.9,-20.8,Fastball?,25.80246914,Jackson Venesko,L
+80,2109,1620,76.8,10:42,-11.1,12.7,3,-39.8,Fastball?,26.3625,Jackson Venesko,L
+80,2152,1858,86.3,10:20,-15.4,11.7,4,-30.3,Fastball?,26.9,Jackson Venesko,L
+68.6,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+70.1,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+68.1,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+69.5,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+81,2090,1970,94.3,10:36,-13.8,15,3.6,-19.5,Changeup?,25.80246914,Jackson Venesko,L
+74.7,1464,1124,76.8,10:36,-9.7,10.4,3.4,-39.8,Changeup?,19.59839357,Jackson Venesko,L
+75.4,1453,1210,83.3,10:24,-11.8,9.9,3.4,-33.6,Changeup?,19.27055703,Jackson Venesko,L
+78.2,1819,1537,84.5,10:14,-14.3,10.6,2.8,-32.3,Fastball?,23.26086957,Jackson Venesko,L
+78.9,1913,1567,81.9,10:22,-13.4,11.1,2.3,-35,Fastball?,24.24588086,Jackson Venesko,L
+78.2,1999,1861,93.1,10:38,-13.5,15.4,2.5,-21.4,Fastball?,25.56265985,Jackson Venesko,L
+79,2083,1798,86.3,10:22,-14.6,12.7,1.6,-30.4,Fastball?,26.36708861,Jackson Venesko,L
+79,2069,1560,75.4,10:40,-11.3,12,3.2,-41.1,Fastball?,26.18987342,Jackson Venesko,L
+79.2,2091,1930,92.3,10:42,-13.1,16,2.6,-22.6,Fastball?,26.40151515,Jackson Venesko,L
+89.3,1899,1827,96.2,11:46,-2.2,17.3,2.1,-15.8,Fastball?,21.26539754,Jackson Venesko,L
+91.6,2009,1875,93.3,11:48,-2,16.9,3.7,-21.1,Fastball?,21.93231441,Jackson Venesko,L
+72.6,0,0,0,0,0,0,0,0,Curveball?,0,Jackson Venesko,L
+71.2,2071,953,46,5:32,2,-10.6,2.6,-62.6,Curveball?,29.08707865,Jackson Venesko,L
+78.8,1989,445,22.4,5:22,1.5,-5.8,3.8,-77.1,Curveball?,25.24111675,Jackson Venesko,L
+92.8,2141,2090,97.6,11:50,-2,18.9,3.1,-12.5,Fastball?,23.07112069,Jackson Venesko,L
+91.3,2182,2137,97.9,11:52,-1.4,19.2,4.9,-11.7,Fastball?,23.8992333,Jackson Venesko,L
+91.6,2156,2100,97.4,11:52,-1.5,18.9,5,-13.1,Fastball?,23.5371179,Jackson Venesko,L
+93.3,2200,2144,97.5,11:44,-3.1,19.1,3.6,-12.9,Fastball?,23.57984995,Jackson Venesko,L
+93.3,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+91.5,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+92.9,0,0,0,0,0,0,0,0,Fastball?,0,Jackson Venesko,L
+91,2026,1974,97.4,11:28,-5.3,17.9,3.4,-13.1,Fastball?,22.26373626,Jackson Venesko,L
+89.6,2080,2032,97.7,11:30,-5.4,18.7,4.8,-12.3,Fastball?,23.21428571,Jackson Venesko,L
+75.6,2307,1630,70.7,1:18,9.9,11.9,-0.9,45,Fastball?,30.51587302,Alex Hunt,R
+73.7,2157,1707,79.1,1:00,8.3,13.8,-2.3,37.7,Fastball?,29.26729986,Alex Hunt,R
+74.3,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+69.7,2075,1708,82.3,1:08,9.4,14.3,-0.2,34.6,Fastball?,29.77044476,Alex Hunt,R
+69.5,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+62,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+61.4,2068,1705,82.4,1:08,8,12.5,-1.2,34.5,Fastball?,33.68078176,Alex Hunt,R
+86.8,2398,2372,98.9,1:08,12.6,18.2,0.9,8.4,Fastball?,27.62672811,Alex Hunt,R
+86.5,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+87.3,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+79.6,0,0,0,0,0,0,0,0,Changeup?,0,Alex Hunt,R
+85.5,2338,2300,98.4,1:06,12.1,18.4,0.9,10.2,Fastball?,27.34502924,Alex Hunt,R
+79.9,0,0,0,0,0,0,0,0,Changeup?,0,Alex Hunt,R
+81.2,2004,1506,75.1,1:14,10.4,12.5,-1,41.3,Changeup?,24.67980296,Alex Hunt,R
+86.1,2325,2080,89.4,1:22,13.4,15.3,1.1,26.6,Fastball?,27.00348432,Alex Hunt,R
+73.2,2398,1119,46.7,7:36,-8.3,-6.7,2.1,62.2,Curveball?,32.75956284,Alex Hunt,R
+72.8,2472,716,29,8:56,-8.1,0.4,1.4,73.2,Curveball?,33.95604396,Alex Hunt,R
+86.8,2319,2183,94.1,1:18,13.6,16.6,0.6,19.8,Fastball?,26.71658986,Alex Hunt,R
+77.3,2716,620,22.8,9:24,-4.8,1.1,-0.6,76.8,Slider?,35.13583441,Alex Hunt,R
+78.9,2121,522,24.6,11:14,-2.1,5.3,0.3,75.8,Slider?,26.88212928,Alex Hunt,R
+87,2294,2147,93.6,1:14,12.6,16.6,0.4,20.7,2 Seam fastball?,26.36781609,Alex Hunt,R
+87.4,2468,2448,99.2,1:10,13.3,18.8,0.3,7.2,2 Seam fastball?,28.23798627,Alex Hunt,R
+87,2255,2138,94.8,1:16,13,16,-1.2,18.5,Fastball?,25.91954023,Alex Hunt,R
+87.7,2386,2126,89.1,1:00,10.4,17.5,-0.3,27,Fastball?,27.2063854,Alex Hunt,R
+84.1,2303,2263,98.3,0:42,7.9,20.7,-0.3,10.7,Fastball?,27.38406659,Alex Hunt,R
+86.2,2400,2363,98.5,1:08,12.2,18.4,1.2,9.9,Fastball?,27.84222738,Alex Hunt,R
+86.7,2209,2191,99.2,1:12,12.6,16.9,-1.4,7.3,Fastball?,25.47866205,Alex Hunt,R
+86.3,2169,2026,93.4,1:08,11.5,16.7,-0.4,20.9,Fastball?,25.13325608,Alex Hunt,R
+75.2,0,0,0,0,0,0,0,0,Slider?,0,Alex Hunt,R
+83.8,2258,2220,98.3,1:10,12.6,17.8,-1,10.5,Fastball?,26.9451074,Alex Hunt,R
+78.3,0,0,0,0,0,0,0,0,Changeup?,0,Alex Hunt,R
+79.1,1506,1202,79.8,0:56,7.2,13.1,-0.2,37,Changeup?,19.0391909,Alex Hunt,R
+84.4,2297,2186,95.2,1:10,12.3,16.7,-1.7,17.9,2 Seam fastball?,27.21563981,Alex Hunt,R
+74.4,0,0,0,0,0,0,0,0,2 Seam fastball?,0,Alex Hunt,R
+85.1,0,0,0,0,0,0,0,0,2 Seam fastball?,0,Alex Hunt,R
+85.6,0,0,0,0,0,0,0,0,2 Seam fastball?,0,Alex Hunt,R
+71.5,2375,1265,53.3,7:52,-11.2,-6.2,1.9,57.8,Curveball?,33.21678322,Alex Hunt,R
+70.7,2293,1259,54.9,7:50,-11.4,-6.5,2.5,56.7,Curveball?,32.43281471,Alex Hunt,R
+85.1,2225,2208,99.2,1:18,13.4,16.5,-0.8,7.2,Fastball?,26.14571093,Alex Hunt,R
+74.4,2374,764,32.2,8:44,-7.2,-0.6,0.8,71.2,Slider?,31.90860215,Alex Hunt,R
+75.5,0,0,0,0,0,0,0,0,Slider?,0,Alex Hunt,R
+84.2,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+84.8,2189,2096,95.7,1:16,12.9,16,-2.3,16.8,Fastball?,25.81367925,Alex Hunt,R
+83.4,0,0,0,0,0,0,0,0,Fastball?,0,Alex Hunt,R
+84.5,2112,2096,99.3,1:12,12.6,17.1,-1.1,6.9,Fastball?,24.99408284,Alex Hunt,R
+85,2217,2211,99.7,1:12,12.8,17.2,-1.5,4.2,Fastball?,26.08235294,Alex Hunt,R
+84.8,2239,2234,99.8,1:08,11.8,17.6,-1.2,-4,Fastball?,26.40330189,Alex Hunt,R
+77,2137,59,2.8,9:56,-1.4,-0.6,-2.4,88.4,Slider?,27.75324675,Jayson Hoopes,R
+76.5,2218,253,11.4,0:22,0.2,1,-4,83.4,Slider?,28.99346405,Jayson Hoopes,R
+87.9,2074,2052,98.9,0:42,7.4,18.9,-1.6,8.4,Changeup?,23.59499431,Jayson Hoopes,R
+77.7,2017,2015,99.9,1:48,17.3,12.4,-3.6,2.2,Changeup?,25.95881596,Jayson Hoopes,R
+78.8,1987,1942,97.7,1:48,16.4,11.5,-3.6,12.2,Changeup?,25.21573604,Jayson Hoopes,R
+77.5,1920,1845,96.1,2:20,18.8,6.1,-5,16.1,Changeup?,24.77419355,Jayson Hoopes,R
+80,1998,1938,97,1:56,17.3,10.4,-4.3,14,Changeup?,24.975,Jayson Hoopes,R
+87.6,2286,2279,99.7,1:08,12,17.5,-2.5,4.5,Fastball?,26.09589041,Jayson Hoopes,R
+90.6,2307,2156,93.4,1:16,12.5,15.4,-1.7,20.9,Fastball?,25.46357616,Jayson Hoopes,R
+90.8,2390,2357,98.6,1:08,12.3,17.7,-0.8,9.5,Fastball?,26.3215859,Jayson Hoopes,R
+89.4,2141,2130,99.5,1:12,12.2,17,-2.6,-5.9,Fastball?,23.94854586,Jayson Hoopes,R
+88.5,2071,2064,99.7,1:16,12.7,16.1,-3.5,4.5,Fastball?,23.40112994,Jayson Hoopes,R
