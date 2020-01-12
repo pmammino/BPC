@@ -1,0 +1,325 @@
+# install.packages("dplyr")
+# install.packages("ggplot2")
+# install.packages("mgcv")
+# install.packages("REdaS")
+# install.packages("gridExtra")
+# library(dplyr)
+# library(ggplot2)
+# library(mgcv)
+# library(REdaS)
+# library(gridExtra)
+
+
+## Download Relevant Data
+fastballs <- read.csv("data/fastballs.csv")
+Pitchers <- read.csv("data/BPC_pitchers.csv")
+Pitchers$Pitch.Type <- gsub("[[:punct:]]", "", Pitchers$Pitch.Type)
+AllPitchData <- read.csv("data/AllPitchData.csv")
+
+##Prep the pitcher you want to evaluate
+pitch_arsenal <- function(pitcher_name)
+{
+  pitcher <- filter(Pitchers, Pitcher == pitcher_name)
+  pitcher <- filter(pitcher, BU != 0)
+  pitcher$Pitch.Type[pitcher$Pitch.Type == "2 Seam fastball"] <- "Fastball"
+  
+  pitcher_stats <- pitcher %>% 
+    select(Pitch.Type,Velo, Total.spin,H..BREAK, V_BREAK) %>%
+    group_by(Pitch.Type) %>%
+    summarise(Velo = mean(Velo), TS = mean(Total.spin), HB = -mean(H..BREAK), VB = mean(V_BREAK))
+  pitcher_stats$BU <- pitcher_stats$TS/pitcher_stats$Velo
+  pitcher_stats$Move_Angle <- rad2deg(atan2(pitcher_stats$VB,pitcher_stats$HB))
+  pitcher_stats %>% mutate_if(is.numeric, ~round(., 1))
+}
+
+whiff_chart <- function(pitcher_aresenal, pitcher_name)
+{
+  # define the strike zone
+  topKzone <- 3.5
+  botKzone <- 1.6
+  inKzone <- -0.95
+  outKzone <- 0.95
+  kZone <- data.frame(
+    x=c(inKzone, inKzone, outKzone, outKzone, inKzone),
+    y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
+  )
+  
+  pitcher_stats <- pitcher_aresenal
+  pitcher <- filter(Pitchers, Pitcher == pitcher_name)
+  
+  # define the 1/0 response variable
+  fastballs <- mutate(fastballs, Whiff=ifelse(description %in% c("ball", "blocked_ball","bunt_foul_tip", "called_strike", "foul", "foul_bunt", "foul_tip", "hit_by_pitch", "hit_into_play","hit_into_play_no_out", "hit_into_play_score", "missed_bunt", "pitchout"),
+                                              0, 1))
+  fastballs <- mutate(fastballs, Swing=ifelse(description %in% c("ball", "blocked_ball","bunt_foul_tip", "called_strike","foul_bunt", "hit_by_pitch", "missed_bunt", "pitchout"),
+                                              0, 1))
+  fastballs$release_spin_rate <- as.numeric(as.character(fastballs$release_spin_rate))
+  fastballs$BU <- fastballs$release_spin_rate/fastballs$release_speed
+  fastballs$Move_Angle <- rad2deg(atan2(fastballs$pfx_z,fastballs$pfx_x))
+  
+  
+  ## Devleop the Same Handed Plot
+  pdata <- filter(fastballs, Swing == 1)
+  pdata <- filter(pdata, between(BU,pitcher_stats$BU[pitcher_stats$Pitch.Type == "Fastball"]-.75,pitcher_stats$BU[pitcher_stats$Pitch.Type == "Fastball"]+0.75))
+  pdata <- filter(pdata, between(Move_Angle, pitcher_stats$Move_Angle[pitcher_stats$Pitch.Type == "Fastball"]-10,pitcher_stats$Move_Angle[pitcher_stats$Pitch.Type == "Fastball"]+10))
+  if (pitcher$Handedness[1] == "R") {
+    pdata <- filter(pdata, p_throws == "R")
+    pdata <- filter(pdata, h_bats == "R")
+  } else {
+    pdata <- filter(pdata, p_throws == "L")
+    pdata <- filter(pdata, h_bats == "L")
+  }
+  fit <- gam(Whiff ~ s(plate_x,plate_z), family=binomial, data=pdata)
+  
+  # find predicted probabilities over a 50 x 50 grid
+  plate_x <- seq(-1.5, 1.5, length.out=100)
+  plate_z <- seq(1.4, 3.75, length.out=100)
+  data.predict <- data.frame(plate_x = c(outer(plate_x, plate_z * 0 + 1)),
+                             plate_z = c(outer(plate_x * 0 + 1, plate_z)))
+  lp <- predict(fit, data.predict)
+  data.predict$Probability <- exp(lp) / (1 + exp(lp))
+  
+  # construct the plot V Same
+  Same <- ggplot(kZone, aes(x, y)) +
+    geom_tile(data=data.predict, 
+              aes(x=plate_x, y=plate_z, fill= Probability)) +
+    scale_fill_distiller(palette = "Spectral") +
+    geom_path(lwd=1.5, col="black") +
+    coord_fixed()+labs(title="Whiff Rates Similar Fastballs V Same")
+  
+  ## Devleop the Oppo Handed Plot
+  pdata <- filter(fastballs, Swing == 1)
+  pdata <- filter(pdata, between(BU,pitcher_stats$BU[pitcher_stats$Pitch.Type == "Fastball"]-.75,pitcher_stats$BU[pitcher_stats$Pitch.Type == "Fastball"]+0.75))
+  pdata <- filter(pdata, between(Move_Angle, pitcher_stats$Move_Angle[pitcher_stats$Pitch.Type == "Fastball"]-10,pitcher_stats$Move_Angle[pitcher_stats$Pitch.Type == "Fastball"]+10))
+  if (pitcher$Handedness[1] == "R") {
+    pdata <- filter(pdata, p_throws == "R")
+    pdata <- filter(pdata, h_bats == "L" | h_bats == "S")
+  } else {
+    pdata <- filter(pdata, p_throws == "L")
+    pdata <- filter(pdata, h_bats == "R" | h_bats == "S")
+  }
+  fit <- gam(Whiff ~ s(plate_x,plate_z), family=binomial, data=pdata)
+  
+  # find predicted probabilities over a 50 x 50 grid
+  plate_x <- seq(-1.5, 1.5, length.out=100)
+  plate_z <- seq(1.4, 3.75, length.out=100)
+  data.predict <- data.frame(plate_x = c(outer(plate_x, plate_z * 0 + 1)),
+                             plate_z = c(outer(plate_x * 0 + 1, plate_z)))
+  lp <- predict(fit, data.predict)
+  data.predict$Probability <- exp(lp) / (1 + exp(lp))
+  
+  # construct the plot V Oppo
+  Oppo <- ggplot(kZone, aes(x, y)) +
+    geom_tile(data=data.predict, 
+              aes(x=plate_x, y=plate_z, fill= Probability)) +
+    scale_fill_distiller(palette = "Spectral") +
+    geom_path(lwd=1.5, col="black") +
+    coord_fixed()+labs(title="Whiff Rates Similar Fastballs V Oppo")
+  
+  ## Generate Plots
+  grid.arrange(Same, Oppo, ncol=2)
+}
+
+
+
+
+pitch_comps <- function(pitcher_name, pitch_type)
+{
+  #AllPitchData[,c("X4SeamH.Move",
+  #                "X2SeamH.Move",
+  #                "CutterH.Move",
+  #                "SliderH.Move",
+  #                "Change.UpH.Move",
+  #                "CurveballH.Move")] <- dplyr::select(AllPitchData, ends_with("H.Move")) * -1
+  AllPitchData$X4SeamMove_Angle <-  rad2deg(atan2(AllPitchData$X4SeamV.Move,AllPitchData$X4SeamH.Move))
+  AllPitchData$X2SeamMove_Angle <-  rad2deg(atan2(AllPitchData$X2SeamV.Move,AllPitchData$X2SeamH.Move))
+  AllPitchData$CutterMove_Angle <-  rad2deg(atan2(AllPitchData$CutterV.Move,AllPitchData$CutterH.Move))
+  AllPitchData$SliderMove_Angle <-  rad2deg(atan2(AllPitchData$SliderV.Move,AllPitchData$SliderH.Move))
+  AllPitchData$Change.UpMove_Angle <-  rad2deg(atan2(AllPitchData$Change.UpV.Move,AllPitchData$Change.UpH.Move))
+  AllPitchData$CurveballMove_Angle <-  rad2deg(atan2(AllPitchData$CurveballV.Move,AllPitchData$CurveballH.Move))
+  
+  AllPitchData <- AllPitchData[,c("ID",
+                                  "FG.ID",
+                                  "Pitcher",
+                                  "Handedness",
+                                  "X4SeamVelo",
+                                  "X4SeamSpin",
+                                  "X4SeamBU",
+                                  "X4SeamWhiff.Swing",
+                                  "X4SeamwOBA",
+                                  "X4SeamH.Move",
+                                  "X4SeamV.Move",
+                                  "X4SeamMove_Angle",
+                                  "X2SeamVelo",
+                                  "X2SeamSpin",
+                                  "X2SeamBU",
+                                  "X2SeamWhiff.Swing",
+                                  "X2SeamwOBA",
+                                  "X2SeamH.Move",
+                                  "X2SeamV.Move",
+                                  "X2SeamMove_Angle",
+                                  "CutterVelo",
+                                  "CutterSpin",
+                                  "CutterBU",
+                                  "CutterWhiff.Swing",
+                                  "CutterwOBA",
+                                  "CutterH.Move",
+                                  "CutterV.Move",
+                                  "CutterMove_Angle",
+                                  "SliderVelo",
+                                  "SliderSpin",
+                                  "SliderBU",
+                                  "SliderWhiff.Swing",
+                                  "SliderwOBA",
+                                  "SliderH.Move",
+                                  "SliderV.Move",
+                                  "SliderMove_Angle",
+                                  "Change.UpVelo",
+                                  "Change.UpSpin",
+                                  "Change.UpBU",
+                                  "Change.UpWhiff.Swing",
+                                  "Change.UpwOBA",
+                                  "Change.UpH.Move",
+                                  "Change.UpV.Move",
+                                  "Change.UpMove_Angle",
+                                  "CurveballVelo",
+                                  "CurveballSpin",
+                                  "CurveballBU",
+                                  "CurveballWhiff.Swing",
+                                  "CurveballwOBA",
+                                  "CurveballH.Move",
+                                  "CurveballV.Move",
+                                  "CurveballMove_Angle")]
+  test_pitcher <- pitch_arsenal(pitcher_name)
+  test_pitcher <- filter(test_pitcher, Pitch.Type == "Fastball")
+  AllPitchData$Dist <- sqrt((AllPitchData$X4SeamBU - test_pitcher$BU)^2+(AllPitchData$X4SeamMove_Angle - test_pitcher$Move_Angle)^2)
+  Pitcher_Comps <- filter(AllPitchData, !is.na(Dist))
+  Pitcher_Comps <- Pitcher_Comps[order(Pitcher_Comps$Dist),]
+  Pitcher_Comps$Change.UpDiff <- Pitcher_Comps$X4SeamVelo - Pitcher_Comps$Change.UpVelo
+  Pitcher_Comps <- Pitcher_Comps[c("ID",
+                                   "FG.ID",
+                                   "Pitcher",
+                                   "Handedness",
+                                   "X4SeamBU",
+                                   "X4SeamMove_Angle",
+                                   "X4SeamWhiff.Swing",
+                                   "X4SeamwOBA",
+                                   "X2SeamBU",
+                                   "X2SeamMove_Angle",
+                                   "X2SeamWhiff.Swing",
+                                   "X2SeamwOBA",
+                                   "CutterBU",
+                                   "CutterMove_Angle",
+                                   "CutterWhiff.Swing",
+                                   "CutterwOBA",
+                                   "SliderBU",
+                                   "SliderMove_Angle",
+                                   "SliderWhiff.Swing",
+                                   "SliderwOBA",
+                                   "Change.UpBU",
+                                   "Change.UpMove_Angle",
+                                   "Change.UpDiff",
+                                   "Change.UpWhiff.Swing",
+                                   "Change.UpwOBA",
+                                   "CurveballBU",
+                                   "CurveballMove_Angle",
+                                   "CurveballWhiff.Swing",
+                                   "CurveballwOBA")]
+  Pitcher_Comps <- Pitcher_Comps[1:50,]
+  
+  #Create 2 Seam Profile Matches
+  Two_Seam <- Pitcher_Comps[,c("ID",
+                               "FG.ID",
+                               "Pitcher",
+                               "Handedness",
+                               "X2SeamBU",
+                               "X2SeamMove_Angle",
+                               "X2SeamWhiff.Swing",
+                               "X2SeamwOBA")]
+  Two_Seam <- Two_Seam[complete.cases(Two_Seam), ]
+  Two_Seam$X2SeamMove_Angle <- round(Two_Seam$X2SeamMove_Angle,1)
+  Two_Seam$X2SeamWhiff.Swing <- round(Two_Seam$X2SeamWhiff.Swing,2)
+  Two_Seam$X2SeamwOBA <- round(Two_Seam$X2SeamwOBA,3)
+  
+  #Create Cutter Profile Matches
+  Cutter <- Pitcher_Comps[,c("ID",
+                             "FG.ID",
+                             "Pitcher",
+                             "Handedness",
+                             "CutterBU",
+                             "CutterMove_Angle",
+                             "CutterWhiff.Swing",
+                             "CutterwOBA")]
+  Cutter <- Cutter[complete.cases(Cutter), ]
+  Cutter$CutterMove_Angle <- round(Cutter$CutterMove_Angle,1)
+  Cutter$CutterWhiff.Swing <- round(Cutter$CutterWhiff.Swing,2)
+  Cutter$CutterwOBA <- round(Cutter$CutterwOBA,3)
+  
+  #Create Slider Profile Matches
+  Slider <- Pitcher_Comps[,c("ID",
+                             "FG.ID",
+                             "Pitcher",
+                             "Handedness",
+                             "SliderBU",
+                             "SliderMove_Angle",
+                             "SliderWhiff.Swing",
+                             "SliderwOBA")]
+  Slider <- Slider[complete.cases(Slider), ]
+  Slider$SliderMove_Angle <- round(Slider$SliderMove_Angle,1)
+  Slider$SliderWhiff.Swing <- round(Slider$SliderWhiff.Swing,2)
+  Slider$SliderwOBA <- round(Slider$SliderwOBA,3)
+  
+  #Create Change Up Profile Matches
+  Change.Up <- Pitcher_Comps[,c("ID",
+                                "FG.ID",
+                                "Pitcher",
+                                "Handedness",
+                                "Change.UpBU",
+                                "Change.UpMove_Angle",
+                                "Change.UpDiff",
+                                "Change.UpWhiff.Swing",
+                                "Change.UpwOBA")]
+  Change.Up <- Change.Up[complete.cases(Change.Up), ]
+  Change.Up$Change.UpMove_Angle <- round(Change.Up$Change.UpMove_Angle,1)
+  Change.Up$Change.UpWhiff.Swing <- round(Change.Up$Change.UpWhiff.Swing,2)
+  Change.Up$Change.UpDiff <- round(Change.Up$Change.UpDiff,1)
+  Change.Up$Change.UpwOBA <- round(Change.Up$Change.UpwOBA,3)
+  
+  #Create Curveball Profile Matches
+  Curveball <- Pitcher_Comps[,c("ID",
+                                "FG.ID",
+                                "Pitcher",
+                                "Handedness",
+                                "CurveballBU",
+                                "CurveballMove_Angle",
+                                "CurveballWhiff.Swing",
+                                "CurveballwOBA")]
+  Curveball <- Curveball[complete.cases(Curveball), ]
+  Curveball$CurveballMove_Angle <- round(Curveball$CurveballMove_Angle,1)
+  Curveball$CurveballWhiff.Swing <- round(Curveball$CurveballWhiff.Swing,2)
+  Curveball$CurveballwOBA <- round(Curveball$CurveballwOBA,3)
+  
+  if(pitch_type == "Two Seam")
+  {
+    data = Two_Seam
+  }
+  else if (pitch_type == "Cutter")
+  {
+    data = Cutter
+  }
+  else if (pitch_type == "Slider")
+  {
+    data = Slider
+  }
+  else if (pitch_type == "Change Up")
+  {
+    data = Change.Up
+  }
+  else if (pitch_type == "Curveball")
+  {
+    data = Curveball
+  }
+  else
+  {
+    data = "Please Select A Pitch Type"
+  }
+}
